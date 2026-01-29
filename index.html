@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<title>HKT Solutions - Trung tâm đánh giá dịch vụ</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div class="card-container" id="appCard">
+  <!-- SKELETON LOADING -->
+  <div id="loading" class="skeleton-layout show">
+    <!-- SK LEFT -->
+    <div class="sk-left">
+      <div class="sk-brand-area">
+        <div class="sk-loading-text">Đang tải dữ liệu...</div>
+        <div class="sk-box-dark sk-title"></div>
+        <div class="sk-box-dark sk-subtitle"></div>
+      </div>
+      <div class="sk-grid">
+        <div class="sk-row"><div class="sk-box-dark sk-line-left"></div><div class="sk-box-dark sk-line-right"></div></div>
+        <div class="sk-row"><div class="sk-box-dark sk-line-left"></div><div class="sk-box-dark sk-line-right" style="height:30px"></div></div>
+        <div class="sk-row"><div class="sk-box-dark sk-line-left"></div><div class="sk-box-dark sk-line-right"></div></div>
+        <div class="sk-row"><div class="sk-box-dark sk-line-left"></div><div class="sk-box-dark sk-line-right"></div></div>
+        <div class="sk-row"><div class="sk-box-dark sk-line-left"></div><div class="sk-box-dark sk-line-right"></div></div>
+        <div class="sk-row"><div class="sk-box-dark sk-line-left"></div><div class="sk-box-dark sk-line-right"></div></div>
+      </div>
+    </div>
+    <!-- SK RIGHT -->
+    <div class="sk-right">
+      <div class="sk-box sk-logo"></div>
+      <div class="sk-box sk-header"></div>
+      <div class="sk-box sk-text"></div>
+      <div class="sk-box sk-stars"></div>
+      <div class="sk-box sk-input"></div>
+      <div class="sk-box sk-btn"></div>
+    </div>
+  </div>
+
+  <!-- WELCOME -->
+  <div id="welcome" class="overlay" style="background:var(--white); z-index:100">
+    <div class="logo-box" style="margin-bottom:30px; box-shadow:none; border:1px solid #eee;">
+       <img src="https://hktsolutions.vn/storage/logos/logo-hkt-new.png" alt="HKT" style="height:40px;">
+    </div>
+    <h1 class="title-lg">Xin Chào!</h1>
+    <p class="desc-lg">Chào mừng bạn đến với cổng đánh giá chất lượng dịch vụ HKT Solutions. Chúng tôi luôn lắng nghe để phục vụ bạn tốt hơn.</p>
+    <div class="box-note">
+      Vui lòng truy cập thông qua liên kết trong <b>Email</b> hoặc <b>Ticket</b> của bạn.
+    </div>
+  </div>
+
+  <!-- ERROR -->
+  <div id="error" class="overlay">
+    <span class="icon-lg">⚠️</span>
+    <h2 style="color:var(--error); margin-bottom:10px; font-weight:700;">Đã xảy ra lỗi</h2>
+    <p id="errorText" style="color:var(--text-sub); margin-bottom:20px;">Không thể tải dữ liệu.</p>
+    <button onclick="location.reload()" class="btn-submit" style="width:auto; padding:10px 30px;">Thử lại</button>
+  </div>
+
+  <!-- SUCCESS -->
+  <div id="success" class="overlay">
+    <div style="width:70px; height:70px; background:#d1fae5; border-radius:50%; display:flex; align-items:center; justify-content:center; margin-bottom:20px; color:#059669; font-size:35px;">✓</div>
+    <h2 style="color:var(--text-main); margin-bottom:10px;">Cảm ơn bạn!</h2>
+    <p style="color:var(--text-sub); margin-bottom:25px;">Đánh giá của bạn đã được ghi nhận thành công.</p>
+    <button onclick="window.close()" style="border:1px solid #cbd5e0; background:transparent; padding:10px 25px; border-radius:8px; cursor:pointer; color:var(--text-sub);">Đóng cửa sổ</button>
+  </div>
+
+  <!-- CONTENT LAYOUT -->
+  <div id="contentLayout" style="display:none; width:100%; height:100%; flex-direction:inherit;">
+    <!-- LEFT: INFO PANEL -->
+    <div class="panel-info">
+      <div class="brand-area">
+        <h2 class="ticket-title">Đánh Giá Hỗ Trợ</h2>
+        <div class="ticket-subtitle">Ticket ID: <span id="displayId">...</span></div>
+      </div>
+      <div class="info-grid" id="infoList">
+        <!-- JS Insert Data Here -->
+      </div>
+    </div>
+
+    <!-- RIGHT: FORM PANEL -->
+    <div class="panel-form">
+      <div class="right-logo-box">
+        <img src="https://hktsolutions.vn/storage/logos/logo-hkt-new.png" alt="HKT" class="right-logo-img">
+      </div>
+      <div class="form-header">
+        <h3>Trải nghiệm của bạn</h3>
+        <p>Vui lòng đánh giá mức độ hài lòng về hỗ trợ này</p>
+      </div>
+      <div class="rating-area">
+        <div class="stars" id="starContainer">
+          <span class="star" data-val="1">★</span>
+          <span class="star" data-val="2">★</span>
+          <span class="star" data-val="3">★</span>
+          <span class="star" data-val="4">★</span>
+          <span class="star" data-val="5">★</span>
+        </div>
+        <div class="rating-feedback" id="ratingText"></div>
+      </div>
+      <textarea id="comment" placeholder="Bạn có nhận xét gì thêm không? (Tùy chọn)"></textarea>
+      <button class="btn-submit" id="submitBtn">
+        <span>Gửi Đánh Giá</span>
+      </button>
+    </div>
+  </div>
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>
