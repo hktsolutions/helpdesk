@@ -1,4 +1,4 @@
-const WEBHOOK_URL = 'https://zhubliberal.cloud/webhook/ticket';
+const WEBHOOK_URL = 'https://binn8nauto.io.vn/webhook/ticket';
 
 const ui = {
   loading: document.getElementById('loading'),
@@ -242,5 +242,6 @@ window.addEventListener('resize', () => {
   clearTimeout(resizeTimer);
   resizeTimer = setTimeout(checkOverflow, 200);
 });
+
 
 document.addEventListener('DOMContentLoaded', initApp);
